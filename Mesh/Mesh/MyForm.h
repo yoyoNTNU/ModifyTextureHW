@@ -101,6 +101,9 @@ namespace Mesh {
 
 
 	private: System::Windows::Forms::ToolStripMenuItem^ 讀取檔案ToolStripMenuItem;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ID;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ TexureName;
+	private: System::Windows::Forms::DataGridViewImageColumn^ Image;
 	private: System::Windows::Forms::ToolStripMenuItem^ 儲存檔案ToolStripMenuItem;
 
 	private: String^ getRelativePath(String^ path);
@@ -117,9 +120,9 @@ namespace Mesh {
 	private: System::Windows::Forms::TrackBar^ trackBar_scale;
 	private: System::Windows::Forms::TrackBar^ trackBar_moveX;
 	private: System::Windows::Forms::TrackBar^ trackBar_moveY;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ID;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ TexureName;
-	private: System::Windows::Forms::DataGridViewImageColumn^ Image;
+
+
+
 	private: System::Windows::Forms::ToolStripMenuItem^ 新增貼圖ToolStripMenuItem;
 
 
@@ -454,7 +457,8 @@ namespace Mesh {
 			this->TexturedataGridView->MultiSelect = false;
 			this->TexturedataGridView->Name = L"TexturedataGridView";
 			this->TexturedataGridView->ReadOnly = true;
-			this->TexturedataGridView->RowTemplate->Height = 48;
+			this->TexturedataGridView->RowHeadersWidth = 25;
+			this->TexturedataGridView->RowTemplate->Height = 100;
 			this->TexturedataGridView->Size = System::Drawing::Size(198, 500);
 			this->TexturedataGridView->TabIndex = 6;
 			this->TexturedataGridView->SelectionChanged += gcnew System::EventHandler(this, &MyForm::textureListValueChange);
@@ -479,7 +483,6 @@ namespace Mesh {
 			this->Image->ImageLayout = System::Windows::Forms::DataGridViewImageCellLayout::Zoom;
 			this->Image->Name = L"Image";
 			this->Image->ReadOnly = true;
-			this->Image->Width = 80;
 			// 
 			// panel1
 			// 
