@@ -333,8 +333,10 @@ System::Void Mesh::MyForm::selectMode_Click(System::Object^ sender, System::Even
 {
 	if (this->radioButton_addFace->Checked)
 		selectionMode = SelectMode::ADD_FACE;
-	else
+	else if(this->radioButton_deleteFace->Checked)
 		selectionMode = SelectMode::DEL_FACE;
+	else if (this->radioButton_moveFace->Checked)
+		selectionMode = SelectMode::MOVE_FACE;
 }
 
 System::Void Mesh::MyForm::ScaleAdd_Click(System::Object^ sender, System::EventArgs^ e)
@@ -392,13 +394,13 @@ void clear_texture_info() {
 void SelectionHandler(unsigned int x, unsigned int y)
 {
 	GLuint faceID = pickingTexture.ReadTexture(x, windowHeight - y - 1);
-	std::cout << "ID¡G" << faceID << "	editorHeight¡G" << windowHeight << "	x¡G" << x << "	y¡G" << y << std::endl;
+	//std::cout << "ID¡G" << faceID << "	editorHeight¡G" << windowHeight << "	x¡G" << x << "	y¡G" << y << std::endl;
 	if (faceID != 0)
 	{
-		cout << "ID : " << faceID << endl;
+		//cout << "ID : " << faceID << endl;
 		currentFaceID = faceID;
 	}
-
+	static float last_move_time = 0;
 	if (selectionMode == ADD_FACE)
 	{
 		if (faceID != 0)
@@ -413,6 +415,15 @@ void SelectionHandler(unsigned int x, unsigned int y)
 			model.DeleteSelectedFace(faceID - 1, selectTextureIndex);
 		}
 	}
+	else if (selectionMode == MOVE_FACE)
+	{
+		if (faceID != 0 && (glutGet(GLUT_ELAPSED_TIME)- last_move_time > 3.0f))
+		{
+			model.MoveSelectedFace(faceID - 1, selectTextureIndex);
+			last_move_time = glutGet(GLUT_ELAPSED_TIME);
+		}
+	}
+
 }
 
 void LoadModel()
@@ -652,6 +663,7 @@ void My_Paint()
 
 	if (drawTexture)
 	{
+
 		drawModelShader.DrawTexture(true);
 		for (int i = 0; i < textureIDList.size(); i++)
 		{
@@ -669,7 +681,7 @@ void My_Paint()
 	}
 	else
 	{
-		if (selectionMode == SelectMode::ADD_FACE || selectionMode == SelectMode::DEL_FACE)
+		if (selectionMode == SelectMode::ADD_FACE || selectionMode == SelectMode::DEL_FACE || selectionMode == SelectMode::MOVE_FACE)
 		{
 			drawPickingFaceShader.Enable();
 			drawPickingFaceShader.SetMVMat(value_ptr(mvMat));
@@ -677,6 +689,9 @@ void My_Paint()
 			model.RenderSelectedFace(selectTextureIndex);
 			drawPickingFaceShader.Disable();
 		}
+
+
+
 	}
 
 }

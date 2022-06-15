@@ -104,6 +104,8 @@ namespace Mesh {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ID;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ TexureName;
 	private: System::Windows::Forms::DataGridViewImageColumn^ Image;
+	private: System::Windows::Forms::RadioButton^ radioButton_moveFace;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ 儲存檔案ToolStripMenuItem;
 
 	private: String^ getRelativePath(String^ path);
@@ -174,6 +176,7 @@ namespace Mesh {
 			this->Image = (gcnew System::Windows::Forms::DataGridViewImageColumn());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->btn_Parameterization = (gcnew System::Windows::Forms::Button());
+			this->radioButton_moveFace = (gcnew System::Windows::Forms::RadioButton());
 			this->menuStrip1->SuspendLayout();
 			this->groupBox_Mode->SuspendLayout();
 			this->groupBox_selectMode->SuspendLayout();
@@ -286,11 +289,12 @@ namespace Mesh {
 			// 
 			// groupBox_selectMode
 			// 
+			this->groupBox_selectMode->Controls->Add(this->radioButton_moveFace);
 			this->groupBox_selectMode->Controls->Add(this->radioButton_deleteFace);
 			this->groupBox_selectMode->Controls->Add(this->radioButton_addFace);
 			this->groupBox_selectMode->Location = System::Drawing::Point(38, 613);
 			this->groupBox_selectMode->Name = L"groupBox_selectMode";
-			this->groupBox_selectMode->Size = System::Drawing::Size(115, 46);
+			this->groupBox_selectMode->Size = System::Drawing::Size(161, 46);
 			this->groupBox_selectMode->TabIndex = 3;
 			this->groupBox_selectMode->TabStop = false;
 			this->groupBox_selectMode->Text = L"選面模式";
@@ -298,7 +302,7 @@ namespace Mesh {
 			// radioButton_deleteFace
 			// 
 			this->radioButton_deleteFace->AutoSize = true;
-			this->radioButton_deleteFace->Location = System::Drawing::Point(60, 22);
+			this->radioButton_deleteFace->Location = System::Drawing::Point(59, 24);
 			this->radioButton_deleteFace->Name = L"radioButton_deleteFace";
 			this->radioButton_deleteFace->Size = System::Drawing::Size(47, 16);
 			this->radioButton_deleteFace->TabIndex = 1;
@@ -332,7 +336,7 @@ namespace Mesh {
 			this->groupBox_tools->Controls->Add(this->trackBar_moveX);
 			this->groupBox_tools->Controls->Add(this->button_ScaleDelete);
 			this->groupBox_tools->Controls->Add(this->button_ScaleAdd);
-			this->groupBox_tools->Location = System::Drawing::Point(193, 561);
+			this->groupBox_tools->Location = System::Drawing::Point(223, 561);
 			this->groupBox_tools->Name = L"groupBox_tools";
 			this->groupBox_tools->Size = System::Drawing::Size(480, 111);
 			this->groupBox_tools->TabIndex = 4;
@@ -494,13 +498,25 @@ namespace Mesh {
 			// 
 			// btn_Parameterization
 			// 
-			this->btn_Parameterization->Location = System::Drawing::Point(133, 3);
+			this->btn_Parameterization->Location = System::Drawing::Point(287, 3);
 			this->btn_Parameterization->Name = L"btn_Parameterization";
 			this->btn_Parameterization->Size = System::Drawing::Size(62, 23);
 			this->btn_Parameterization->TabIndex = 0;
 			this->btn_Parameterization->Text = L"重新計算";
 			this->btn_Parameterization->UseVisualStyleBackColor = true;
 			this->btn_Parameterization->Click += gcnew System::EventHandler(this, &MyForm::Parameterization_Click);
+			// 
+			// radioButton_moveFace
+			// 
+			this->radioButton_moveFace->AutoSize = true;
+			this->radioButton_moveFace->Location = System::Drawing::Point(108, 24);
+			this->radioButton_moveFace->Name = L"radioButton_moveFace";
+			this->radioButton_moveFace->Size = System::Drawing::Size(47, 16);
+			this->radioButton_moveFace->TabIndex = 2;
+			this->radioButton_moveFace->TabStop = true;
+			this->radioButton_moveFace->Text = L"移動";
+			this->radioButton_moveFace->UseVisualStyleBackColor = true;
+			this->radioButton_moveFace->CheckedChanged += gcnew System::EventHandler(this, &MyForm::selectMode_Click);
 			// 
 			// MyForm
 			// 
@@ -570,5 +586,7 @@ namespace Mesh {
 	private: System::Void trackBarMoveY_Scroll(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void trackBarRotate_Scroll(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void trackBarScale_Scroll(System::Object^ sender, System::EventArgs^ e);
+private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

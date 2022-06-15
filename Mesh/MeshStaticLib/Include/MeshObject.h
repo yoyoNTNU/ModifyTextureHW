@@ -52,6 +52,7 @@ public:
 	bool AddSelectedFace(unsigned int faceID, int layer);
 	void Parameterization(float uvRotateAngle, int layer);
 	void DeleteSelectedFace(unsigned int faceID, int layer);
+	void MoveSelectedFace(unsigned int faceID, int layer);
 	void RenderParameterized(int layer);
 
 	bool WriteFile();
@@ -62,6 +63,7 @@ public:
 	bool ReadMeshFile(int layer);
 
 	bool CheckSelectFaceListSize(int layer);
+	void scaleSelectedFace(unsigned int faceID, bool ScaleUp);
 private:
 	GLMesh model;
 

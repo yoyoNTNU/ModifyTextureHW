@@ -64,6 +64,7 @@ GLuint vboPoint;
 enum SelectMode {
 	ADD_FACE,
 	DEL_FACE,
+	MOVE_FACE
 };
 SelectMode selectionMode = ADD_FACE;
 int selectTextureIndex = 0;

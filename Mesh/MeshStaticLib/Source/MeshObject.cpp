@@ -258,6 +258,16 @@ bool MeshObject::AddSelectedFace(unsigned int faceID, int layer)
 	return false;
 }
 
+void MeshObject::MoveSelectedFace(unsigned int faceID, int layer)
+{
+		//selectedFaceList[layer].erase(std::remove(selectedFaceList[layer].begin(), selectedFaceList[layer].end(), faceID), selectedFaceList[layer].end());
+	selectedFaceList[layer].clear();
+	selectedFaceList[layer].push_back(faceID);
+	for (int i = 0; i < 3; ++i) Scale(layer);
+	//
+	
+}
+
 void MeshObject::Parameterization(float uvRotateAngle, int layer)
 {
 	if (selectedFaceList[layer].size() == 0) {
@@ -743,6 +753,43 @@ bool MeshObject::ReadMeshFile(int layer)
 	model.LoadTexCoordToShader(layer);
 }
 
+
+//void MeshObject::scaleSelectedFace(unsigned int faceID, int layer) {
+//	MyMesh mesh;
+//	CopySelectFace(mesh, layer);
+//	std::vector<unsigned int> boundary_face;
+//
+//	int index = 0;
+//	for (MyMesh::FaceIter f_it = mesh.faces_begin(); f_it != mesh.faces_end(); ++f_it)
+//	{
+//		MyMesh::FaceHandle fh = *f_it;
+//		MyMesh::FaceHandle selectedFace_h = model.meshList[layer].face_handle(*f_it);
+//		MyMesh::FaceVertexIter fv_it = mesh.fv_iter(fh);
+//		MyMesh::FaceVertexIter selectedfv_it = editorModel->mesh.fv_iter(selectedFace_h);
+//		for (; fv_it.is_valid() && selectedfv_it.is_valid(); ++fv_it, ++selectedfv_it)
+//		{
+//			for (MyMesh::VertexFaceIter vf_it = editorModel->mesh.vf_iter(*selectedfv_it); vf_it.is_valid(); ++vf_it)
+//			{
+//				char dest[6];
+//				sprintf(dest, "%d", (*vf_it));
+//
+//				if (mesh.is_boundary(*fv_it))
+//				{
+//					boundary_face.push_back(atoi(dest));
+//				}
+//			}
+//		}
+//	}
+//
+//	for (std::vector<unsigned int>::iterator h = boundary_face.begin(); h != boundary_face.end(); h++)
+//	{
+//		if (ScaleUp)
+//			addSelectedFace(*h);
+//		else
+//			deleteSelectedFace(*h);
+//	}
+//}
+
 void MeshObject::Scale(int layer)
 {
 
@@ -812,7 +859,7 @@ void MeshObject::Scale(int layer)
 
 	selectedFaceList[layer] = temp;
 
-	std::cout << "現有面數=" << selectedFaceList[layer].size() << endl;
+	//std::cout << "現有面數=" << selectedFaceList[layer].size() << endl;
 	model.meshList[layer].update_normals();
 
 }
