@@ -37,7 +37,7 @@ mat4			proj_matrix;
 float			aspect = 0.5f;
 
 GLuint			textureID;
-vector<GLuint>	textureIDList(TEXTURESUM);
+vector<GLuint>	textureIDList;
 ViewManager		meshWindowCam, texCoordWindowCam;
 vector<string> textureFileName;
 

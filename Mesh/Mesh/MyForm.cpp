@@ -294,13 +294,23 @@ System::Void Mesh::MyForm::addTexturetoList(int index,string _fileName)
 	TexturedataGridView->Rows->Add(index, nameTmp, Image::FromFile(strTmp));
 }
 
+System::String^ getFileName(String^ filepath) {
+	int lastBackslashIndex = filepath->LastIndexOf('\\');
+	System::String^ fileName = filepath->Substring(lastBackslashIndex + 1);
+	return fileName;
+}
+
 System::Void Mesh::MyForm::updateTextureList() 
 {
+	for (int i : textureIDList) {
+		cout << i << "　";
+	}
+	cout << endl;
 	TexturedataGridView->Rows->Clear();
 	for (int i = 0; i < textureIDList.size(); i++) {
 		String^ nameTmp = gcnew String(textureFileName[i].c_str());
-		String^ strTmp = gcnew String((/*ResourcePath::imagePath +*/ textureFileName[i]).c_str());
-		TexturedataGridView->Rows->Add(i,nameTmp, Image::FromFile(strTmp));
+
+		TexturedataGridView->Rows->Add(textureIDList[i]-1/*因為在前面有人把ID1搶走了*/, getFileName(nameTmp), Image::FromFile(nameTmp));
 	}
 }
 
@@ -309,7 +319,7 @@ System::Void Mesh::MyForm::textureListValueChange(System::Object^ sender, System
 	if (TexturedataGridView->SelectedCells->Count == 0)
 		return;
 	if (textureIDList.empty()) return;
-	int id = Convert::ToInt32(TexturedataGridView->SelectedCells[0]->OwningRow->Cells[0]->Value);
+	int id = Convert::ToInt32(TexturedataGridView->SelectedCells[0]->RowIndex);
 	selectTextureIndex = id;
 	trackBar_rotate->Value = uvRotate[selectTextureIndex];
 }
@@ -457,15 +467,16 @@ void LoadTexture(const char* _path,bool first)
 	else textureFileName.push_back(filename);
 
 	TextureData tdata = Load_png((/*ResourcePath::imagePath +*/ filename).c_str());
+	GLuint textureID;
 	if (first) {
 		textureIDList.insert(textureIDList.begin() + textureIDList.size() / 2, 1);
 		glGenTextures(1, &textureIDList[textureIDList.size() / 2]);
 		glBindTexture(GL_TEXTURE_2D, textureIDList[textureIDList.size() / 2]);
 	}
 	else {
-		textureIDList.push_back(1);
-		glGenTextures(1, &textureIDList[textureIDList.size() - 1]);
-		glBindTexture(GL_TEXTURE_2D, textureIDList[textureIDList.size() - 1]);
+		glGenTextures(1, &textureID);
+		cout << "check:" << textureID << endl;
+		glBindTexture(GL_TEXTURE_2D, textureID);
 	}
 
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA32F, tdata.width, tdata.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, tdata.data);
@@ -473,6 +484,7 @@ void LoadTexture(const char* _path,bool first)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	textureIDList.emplace_back(textureID);
 	glBindTexture(GL_TEXTURE_2D, 0);
 	cout << "Load Texture Finish." << endl;
 
