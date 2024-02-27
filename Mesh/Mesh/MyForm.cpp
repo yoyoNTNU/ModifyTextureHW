@@ -268,19 +268,20 @@ System::String^ Mesh::MyForm::getRelativePath(String^ path)
 
 System::Void Mesh::MyForm::newTexturebtn_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	OpenFileDialog^ ofd = gcnew OpenFileDialog();
-	ofd->InitialDirectory = "./Image/";
-	ofd->Title = "選擇貼圖";
-	ofd->Filter = "PNG, JPG Files (*.png,*.jpg)|*.png;*.jpg|All Files (*.*)|*.*";
-	ofd->CheckFileExists = true;
-	if (ofd->ShowDialog() != System::Windows::Forms::DialogResult::OK) {
+	openTextureDialog->InitialDirectory = "./Image/";
+	openTextureDialog->Title = "選擇貼圖";
+	openTextureDialog->Filter = "PNG, JPG Files (*.png,*.jpg)|*.png;*.jpg|All Files (*.*)|*.*";
+	openTextureDialog->Multiselect = true;
+	openTextureDialog->CheckFileExists = true;
+	if (openTextureDialog->ShowDialog() != System::Windows::Forms::DialogResult::OK) {
 		return;
 	}
-	String^ path = ofd->FileName;
-	String^ relPath = getRelativePath(path);
-	IntPtr fileNamePtr = Marshal::StringToHGlobalAnsi(relPath);
-	//LoadTexture((char*)fileNamePtr.ToPointer(), true);
-	LoadTexture((char*)fileNamePtr.ToPointer(),false);
+	for each (String ^ path in openTextureDialog->FileNames) {
+		String^ relPath = getRelativePath(path);
+		IntPtr fileNamePtr = Marshal::StringToHGlobalAnsi(relPath);
+		//LoadTexture((char*)fileNamePtr.ToPointer(), true);
+		LoadTexture((char*)fileNamePtr.ToPointer(),false);
+	}
 	updateTextureList();
 }
 
@@ -582,11 +583,11 @@ void InitOpenGL()
 }
 
 void InitData()
-{
+{   //TODO: 改為可以自由選擇模型
 	ResourcePath::shaderPath = "Shader/";
 	ResourcePath::imagePath = "Image/";
 	//ResourcePath::modelPath = "Model/UnionSphere.obj";
-	ResourcePath::modelPath = "Model/armadillo.obj";
+	ResourcePath::modelPath = "Model/horse.obj";
 
 	drawTextureShader.Init();
 	drawModelShader.Init();
@@ -618,7 +619,7 @@ void My_Init()
 void My_Paint()
 {
 
-	glClearColor(0.3f, 0.3f, 0.3f, 0.3f);
+	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glViewport(0, 0, windowWidth, windowHeight);
 
