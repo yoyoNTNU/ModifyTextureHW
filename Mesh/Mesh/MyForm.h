@@ -152,6 +152,7 @@ namespace Mesh {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->panel = (gcnew System::Windows::Forms::Panel());
 			this->updateTimer = (gcnew System::Windows::Forms::Timer(this->components));
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
@@ -177,10 +178,10 @@ namespace Mesh {
 			this->button_ScaleDelete = (gcnew System::Windows::Forms::Button());
 			this->button_ScaleAdd = (gcnew System::Windows::Forms::Button());
 			this->TexturedataGridView = (gcnew System::Windows::Forms::DataGridView());
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->ID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->TexureName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Image = (gcnew System::Windows::Forms::DataGridViewImageColumn());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->AddTextureBtn = (gcnew System::Windows::Forms::Button());
 			this->DelTextureBtn = (gcnew System::Windows::Forms::Button());
 			this->openTextureDialog = (gcnew System::Windows::Forms::OpenFileDialog());
@@ -197,10 +198,8 @@ namespace Mesh {
 			// 
 			// panel
 			// 
-			this->panel->Location = System::Drawing::Point(18, 43);
+			resources->ApplyResources(this->panel, L"panel");
 			this->panel->Name = L"panel";
-			this->panel->Size = System::Drawing::Size(758, 500);
-			this->panel->TabIndex = 0;
 			// 
 			// updateTimer
 			// 
@@ -210,12 +209,10 @@ namespace Mesh {
 			// 
 			// menuStrip1
 			// 
+			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->fileToolStripMenuItem });
-			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			resources->ApplyResources(this->menuStrip1, L"menuStrip1");
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1384, 24);
-			this->menuStrip1->TabIndex = 1;
-			this->menuStrip1->Text = L"menuStrip1";
 			// 
 			// fileToolStripMenuItem
 			// 
@@ -224,55 +221,41 @@ namespace Mesh {
 					this->儲存檔案ToolStripMenuItem
 			});
 			this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
-			this->fileToolStripMenuItem->Size = System::Drawing::Size(43, 20);
-			this->fileToolStripMenuItem->Text = L"檔案";
+			resources->ApplyResources(this->fileToolStripMenuItem, L"fileToolStripMenuItem");
 			// 
 			// 讀取檔案ToolStripMenuItem
 			// 
 			this->讀取檔案ToolStripMenuItem->Name = L"讀取檔案ToolStripMenuItem";
-			this->讀取檔案ToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->讀取檔案ToolStripMenuItem->Text = L"讀取檔案";
+			resources->ApplyResources(this->讀取檔案ToolStripMenuItem, L"讀取檔案ToolStripMenuItem");
 			this->讀取檔案ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::loadTexturebtn_Click);
 			// 
 			// 儲存檔案ToolStripMenuItem
 			// 
 			this->儲存檔案ToolStripMenuItem->Name = L"儲存檔案ToolStripMenuItem";
-			this->儲存檔案ToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->儲存檔案ToolStripMenuItem->Text = L"儲存檔案";
+			resources->ApplyResources(this->儲存檔案ToolStripMenuItem, L"儲存檔案ToolStripMenuItem");
 			this->儲存檔案ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::writeTexturebtn_Click);
 			// 
 			// groupBox_Mode
 			// 
 			this->groupBox_Mode->Controls->Add(this->radioButton_Texture);
 			this->groupBox_Mode->Controls->Add(this->radioButton_selectFace);
-			this->groupBox_Mode->Location = System::Drawing::Point(38, 561);
+			resources->ApplyResources(this->groupBox_Mode, L"groupBox_Mode");
 			this->groupBox_Mode->Name = L"groupBox_Mode";
-			this->groupBox_Mode->Size = System::Drawing::Size(113, 46);
-			this->groupBox_Mode->TabIndex = 2;
 			this->groupBox_Mode->TabStop = false;
-			this->groupBox_Mode->Text = L"顯示";
 			// 
 			// radioButton_Texture
 			// 
-			this->radioButton_Texture->AutoSize = true;
-			this->radioButton_Texture->Location = System::Drawing::Point(59, 21);
+			resources->ApplyResources(this->radioButton_Texture, L"radioButton_Texture");
 			this->radioButton_Texture->Name = L"radioButton_Texture";
-			this->radioButton_Texture->Size = System::Drawing::Size(47, 16);
-			this->radioButton_Texture->TabIndex = 1;
-			this->radioButton_Texture->Text = L"材質";
 			this->radioButton_Texture->UseVisualStyleBackColor = true;
 			this->radioButton_Texture->Click += gcnew System::EventHandler(this, &MyForm::renderMode_Click);
 			// 
 			// radioButton_selectFace
 			// 
-			this->radioButton_selectFace->AutoSize = true;
+			resources->ApplyResources(this->radioButton_selectFace, L"radioButton_selectFace");
 			this->radioButton_selectFace->Checked = true;
-			this->radioButton_selectFace->Location = System::Drawing::Point(6, 21);
 			this->radioButton_selectFace->Name = L"radioButton_selectFace";
-			this->radioButton_selectFace->Size = System::Drawing::Size(47, 16);
-			this->radioButton_selectFace->TabIndex = 0;
 			this->radioButton_selectFace->TabStop = true;
-			this->radioButton_selectFace->Text = L"選面";
 			this->radioButton_selectFace->UseVisualStyleBackColor = true;
 			this->radioButton_selectFace->Click += gcnew System::EventHandler(this, &MyForm::renderMode_Click);
 			// 
@@ -281,47 +264,32 @@ namespace Mesh {
 			this->groupBox_selectMode->Controls->Add(this->radioButton_moveFace);
 			this->groupBox_selectMode->Controls->Add(this->radioButton_deleteFace);
 			this->groupBox_selectMode->Controls->Add(this->radioButton_addFace);
-			this->groupBox_selectMode->Location = System::Drawing::Point(38, 613);
+			resources->ApplyResources(this->groupBox_selectMode, L"groupBox_selectMode");
 			this->groupBox_selectMode->Name = L"groupBox_selectMode";
-			this->groupBox_selectMode->Size = System::Drawing::Size(161, 46);
-			this->groupBox_selectMode->TabIndex = 3;
 			this->groupBox_selectMode->TabStop = false;
-			this->groupBox_selectMode->Text = L"選面模式";
 			// 
 			// radioButton_moveFace
 			// 
-			this->radioButton_moveFace->AutoSize = true;
-			this->radioButton_moveFace->Location = System::Drawing::Point(108, 24);
+			resources->ApplyResources(this->radioButton_moveFace, L"radioButton_moveFace");
 			this->radioButton_moveFace->Name = L"radioButton_moveFace";
-			this->radioButton_moveFace->Size = System::Drawing::Size(47, 16);
-			this->radioButton_moveFace->TabIndex = 2;
 			this->radioButton_moveFace->TabStop = true;
-			this->radioButton_moveFace->Text = L"移動";
 			this->radioButton_moveFace->UseVisualStyleBackColor = true;
 			this->radioButton_moveFace->CheckedChanged += gcnew System::EventHandler(this, &MyForm::selectMode_Click);
 			// 
 			// radioButton_deleteFace
 			// 
-			this->radioButton_deleteFace->AutoSize = true;
-			this->radioButton_deleteFace->Location = System::Drawing::Point(59, 24);
+			resources->ApplyResources(this->radioButton_deleteFace, L"radioButton_deleteFace");
 			this->radioButton_deleteFace->Name = L"radioButton_deleteFace";
-			this->radioButton_deleteFace->Size = System::Drawing::Size(47, 16);
-			this->radioButton_deleteFace->TabIndex = 1;
 			this->radioButton_deleteFace->TabStop = true;
-			this->radioButton_deleteFace->Text = L"刪除";
 			this->radioButton_deleteFace->UseVisualStyleBackColor = true;
 			this->radioButton_deleteFace->Click += gcnew System::EventHandler(this, &MyForm::selectMode_Click);
 			// 
 			// radioButton_addFace
 			// 
-			this->radioButton_addFace->AutoSize = true;
+			resources->ApplyResources(this->radioButton_addFace, L"radioButton_addFace");
 			this->radioButton_addFace->Checked = true;
-			this->radioButton_addFace->Location = System::Drawing::Point(6, 24);
 			this->radioButton_addFace->Name = L"radioButton_addFace";
-			this->radioButton_addFace->Size = System::Drawing::Size(47, 16);
-			this->radioButton_addFace->TabIndex = 0;
 			this->radioButton_addFace->TabStop = true;
-			this->radioButton_addFace->Text = L"新增";
 			this->radioButton_addFace->UseVisualStyleBackColor = true;
 			this->radioButton_addFace->Click += gcnew System::EventHandler(this, &MyForm::selectMode_Click);
 			// 
@@ -337,115 +305,78 @@ namespace Mesh {
 			this->groupBox_tools->Controls->Add(this->trackBar_moveX);
 			this->groupBox_tools->Controls->Add(this->button_ScaleDelete);
 			this->groupBox_tools->Controls->Add(this->button_ScaleAdd);
-			this->groupBox_tools->Location = System::Drawing::Point(223, 561);
+			resources->ApplyResources(this->groupBox_tools, L"groupBox_tools");
 			this->groupBox_tools->Name = L"groupBox_tools";
-			this->groupBox_tools->Size = System::Drawing::Size(480, 111);
-			this->groupBox_tools->TabIndex = 4;
 			this->groupBox_tools->TabStop = false;
-			this->groupBox_tools->Text = L"調整工具";
 			// 
 			// label_Rotate
 			// 
-			this->label_Rotate->AutoSize = true;
-			this->label_Rotate->Location = System::Drawing::Point(298, 74);
+			resources->ApplyResources(this->label_Rotate, L"label_Rotate");
 			this->label_Rotate->Name = L"label_Rotate";
-			this->label_Rotate->Size = System::Drawing::Size(29, 12);
-			this->label_Rotate->TabIndex = 10;
-			this->label_Rotate->Text = L"旋轉";
 			// 
 			// label_Scale
 			// 
-			this->label_Scale->AutoSize = true;
-			this->label_Scale->Location = System::Drawing::Point(298, 28);
+			resources->ApplyResources(this->label_Scale, L"label_Scale");
 			this->label_Scale->Name = L"label_Scale";
-			this->label_Scale->Size = System::Drawing::Size(29, 12);
-			this->label_Scale->TabIndex = 11;
-			this->label_Scale->Text = L"縮放";
 			// 
 			// label_moveY
 			// 
-			this->label_moveY->AutoSize = true;
-			this->label_moveY->Location = System::Drawing::Point(116, 74);
+			resources->ApplyResources(this->label_moveY, L"label_moveY");
 			this->label_moveY->Name = L"label_moveY";
-			this->label_moveY->Size = System::Drawing::Size(37, 12);
-			this->label_moveY->TabIndex = 10;
-			this->label_moveY->Text = L"Y位移";
 			// 
 			// label_moveX
 			// 
-			this->label_moveX->AutoSize = true;
-			this->label_moveX->Location = System::Drawing::Point(116, 28);
+			resources->ApplyResources(this->label_moveX, L"label_moveX");
 			this->label_moveX->Name = L"label_moveX";
-			this->label_moveX->Size = System::Drawing::Size(37, 12);
-			this->label_moveX->TabIndex = 9;
-			this->label_moveX->Text = L"X位移";
 			// 
 			// trackBar_rotate
 			// 
-			this->trackBar_rotate->AutoSize = false;
+			resources->ApplyResources(this->trackBar_rotate, L"trackBar_rotate");
 			this->trackBar_rotate->LargeChange = 1;
-			this->trackBar_rotate->Location = System::Drawing::Point(332, 68);
 			this->trackBar_rotate->Maximum = 360;
 			this->trackBar_rotate->Name = L"trackBar_rotate";
-			this->trackBar_rotate->Size = System::Drawing::Size(119, 22);
-			this->trackBar_rotate->TabIndex = 8;
 			this->trackBar_rotate->TickStyle = System::Windows::Forms::TickStyle::None;
 			this->trackBar_rotate->ValueChanged += gcnew System::EventHandler(this, &MyForm::trackBarRotate_Scroll);
 			// 
 			// trackBar_scale
 			// 
-			this->trackBar_scale->AutoSize = false;
+			resources->ApplyResources(this->trackBar_scale, L"trackBar_scale");
 			this->trackBar_scale->LargeChange = 1;
-			this->trackBar_scale->Location = System::Drawing::Point(332, 24);
 			this->trackBar_scale->Minimum = 1;
 			this->trackBar_scale->Name = L"trackBar_scale";
-			this->trackBar_scale->Size = System::Drawing::Size(119, 22);
-			this->trackBar_scale->TabIndex = 7;
 			this->trackBar_scale->TickStyle = System::Windows::Forms::TickStyle::None;
 			this->trackBar_scale->Value = 5;
 			this->trackBar_scale->ValueChanged += gcnew System::EventHandler(this, &MyForm::trackBarScale_Scroll);
 			// 
 			// trackBar_moveY
 			// 
-			this->trackBar_moveY->AutoSize = false;
+			resources->ApplyResources(this->trackBar_moveY, L"trackBar_moveY");
 			this->trackBar_moveY->LargeChange = 1;
-			this->trackBar_moveY->Location = System::Drawing::Point(150, 68);
 			this->trackBar_moveY->Minimum = -10;
 			this->trackBar_moveY->Name = L"trackBar_moveY";
-			this->trackBar_moveY->Size = System::Drawing::Size(119, 22);
-			this->trackBar_moveY->TabIndex = 6;
 			this->trackBar_moveY->TickStyle = System::Windows::Forms::TickStyle::None;
 			this->trackBar_moveY->ValueChanged += gcnew System::EventHandler(this, &MyForm::trackBarMoveY_Scroll);
 			// 
 			// trackBar_moveX
 			// 
-			this->trackBar_moveX->AutoSize = false;
+			resources->ApplyResources(this->trackBar_moveX, L"trackBar_moveX");
 			this->trackBar_moveX->LargeChange = 1;
-			this->trackBar_moveX->Location = System::Drawing::Point(150, 24);
 			this->trackBar_moveX->Minimum = -10;
 			this->trackBar_moveX->Name = L"trackBar_moveX";
-			this->trackBar_moveX->Size = System::Drawing::Size(119, 22);
-			this->trackBar_moveX->TabIndex = 5;
 			this->trackBar_moveX->TickStyle = System::Windows::Forms::TickStyle::None;
 			this->trackBar_moveX->ValueChanged += gcnew System::EventHandler(this, &MyForm::trackBarMoveX_Scroll);
 			// 
 			// button_ScaleDelete
 			// 
-			this->button_ScaleDelete->Location = System::Drawing::Point(17, 52);
+			resources->ApplyResources(this->button_ScaleDelete, L"button_ScaleDelete");
 			this->button_ScaleDelete->Name = L"button_ScaleDelete";
-			this->button_ScaleDelete->Size = System::Drawing::Size(68, 23);
-			this->button_ScaleDelete->TabIndex = 1;
-			this->button_ScaleDelete->Text = L"縮小選面";
 			this->button_ScaleDelete->UseVisualStyleBackColor = true;
 			this->button_ScaleDelete->Click += gcnew System::EventHandler(this, &MyForm::ScaleDelete_Click);
 			// 
 			// button_ScaleAdd
 			// 
-			this->button_ScaleAdd->Location = System::Drawing::Point(17, 23);
+			resources->ApplyResources(this->button_ScaleAdd, L"button_ScaleAdd");
 			this->button_ScaleAdd->Name = L"button_ScaleAdd";
-			this->button_ScaleAdd->Size = System::Drawing::Size(67, 23);
-			this->button_ScaleAdd->TabIndex = 0;
-			this->button_ScaleAdd->Text = L"放大選面";
 			this->button_ScaleAdd->UseVisualStyleBackColor = true;
 			this->button_ScaleAdd->Click += gcnew System::EventHandler(this, &MyForm::ScaleAdd_Click);
 			// 
@@ -455,81 +386,68 @@ namespace Mesh {
 			this->TexturedataGridView->AllowUserToDeleteRows = false;
 			this->TexturedataGridView->AllowUserToResizeColumns = false;
 			this->TexturedataGridView->AllowUserToResizeRows = false;
+			resources->ApplyResources(this->TexturedataGridView, L"TexturedataGridView");
 			this->TexturedataGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::DisableResizing;
 			this->TexturedataGridView->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
 				this->ID,
 					this->TexureName, this->Image
 			});
-			this->TexturedataGridView->Location = System::Drawing::Point(829, 43);
 			this->TexturedataGridView->MultiSelect = false;
 			this->TexturedataGridView->Name = L"TexturedataGridView";
 			this->TexturedataGridView->ReadOnly = true;
-			this->TexturedataGridView->RowHeadersWidth = 25;
 			this->TexturedataGridView->RowHeadersWidthSizeMode = System::Windows::Forms::DataGridViewRowHeadersWidthSizeMode::DisableResizing;
 			this->TexturedataGridView->RowTemplate->Height = 100;
-			this->TexturedataGridView->Size = System::Drawing::Size(529, 467);
-			this->TexturedataGridView->TabIndex = 6;
 			this->TexturedataGridView->SelectionChanged += gcnew System::EventHandler(this, &MyForm::textureListValueChange);
-			// 
-			// panel1
-			// 
-			this->panel1->Location = System::Drawing::Point(742, 561);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(111, 111);
-			this->panel1->TabIndex = 7;
 			// 
 			// ID
 			// 
-			this->ID->HeaderText = L"ID";
+			resources->ApplyResources(this->ID, L"ID");
 			this->ID->Name = L"ID";
 			this->ID->ReadOnly = true;
-			this->ID->Width = 50;
 			// 
 			// TexureName
 			// 
 			this->TexureName->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
 			this->TexureName->FillWeight = 80;
-			this->TexureName->HeaderText = L"Name";
+			resources->ApplyResources(this->TexureName, L"TexureName");
 			this->TexureName->Name = L"TexureName";
 			this->TexureName->ReadOnly = true;
 			// 
 			// Image
 			// 
 			this->Image->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
-			this->Image->HeaderText = L"Texture";
+			resources->ApplyResources(this->Image, L"Image");
 			this->Image->ImageLayout = System::Windows::Forms::DataGridViewImageCellLayout::Zoom;
 			this->Image->Name = L"Image";
 			this->Image->ReadOnly = true;
 			// 
+			// panel1
+			// 
+			resources->ApplyResources(this->panel1, L"panel1");
+			this->panel1->Name = L"panel1";
+			// 
 			// AddTextureBtn
 			// 
-			this->AddTextureBtn->Location = System::Drawing::Point(875, 520);
+			resources->ApplyResources(this->AddTextureBtn, L"AddTextureBtn");
 			this->AddTextureBtn->Name = L"AddTextureBtn";
-			this->AddTextureBtn->Size = System::Drawing::Size(180, 23);
-			this->AddTextureBtn->TabIndex = 8;
-			this->AddTextureBtn->Text = L"新增貼圖";
 			this->AddTextureBtn->UseVisualStyleBackColor = true;
 			this->AddTextureBtn->Click += gcnew System::EventHandler(this, &MyForm::newTexturebtn_Click);
 			// 
 			// DelTextureBtn
 			// 
-			this->DelTextureBtn->Location = System::Drawing::Point(1143, 520);
+			resources->ApplyResources(this->DelTextureBtn, L"DelTextureBtn");
 			this->DelTextureBtn->Name = L"DelTextureBtn";
-			this->DelTextureBtn->Size = System::Drawing::Size(180, 23);
-			this->DelTextureBtn->TabIndex = 9;
-			this->DelTextureBtn->Text = L"刪除貼圖";
 			this->DelTextureBtn->UseVisualStyleBackColor = true;
+			this->DelTextureBtn->Click += gcnew System::EventHandler(this, &MyForm::DelTextureBtn_Click);
 			// 
 			// openTextureDialog
 			// 
 			this->openTextureDialog->FileName = L"openFileDialog1";
-
 			// 
 			// MyForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 12);
+			resources->ApplyResources(this, L"$this");
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1384, 684);
 			this->Controls->Add(this->DelTextureBtn);
 			this->Controls->Add(this->AddTextureBtn);
 			this->Controls->Add(this->panel1);
@@ -541,7 +459,6 @@ namespace Mesh {
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MyForm";
-			this->Text = L"MyForm";
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->groupBox_Mode->ResumeLayout(false);
@@ -579,6 +496,7 @@ namespace Mesh {
 	private: System::Void loadTexturebtn_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void writeTexturebtn_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void newTexturebtn_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void DelTextureBtn_Click(System::Object^ sender, System::EventArgs^ e);
 		//=================================" TextureList "====================================
 	private: System::Void addTexturetoList(int index,string _fileName);
 	private: System::Void updateTextureList();
@@ -594,7 +512,7 @@ namespace Mesh {
 	private: System::Void trackBarMoveY_Scroll(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void trackBarRotate_Scroll(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void trackBarScale_Scroll(System::Object^ sender, System::EventArgs^ e);
-private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-}
+
+
 };
 }

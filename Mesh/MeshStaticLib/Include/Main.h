@@ -40,6 +40,8 @@ GLuint			textureID;
 vector<GLuint>	textureIDList;
 ViewManager		meshWindowCam, texCoordWindowCam;
 vector<string> textureFileName;
+vector<int> DisableID;
+int nextTextureID = 1;
 
 bool drawTexture = false;
 

@@ -18,7 +18,7 @@ int main(void)
 //=================================" OpenGL Panel "====================================
 void Mesh::MyForm::OnLoad(System::Object^ sender, System::EventArgs^ e)
 {
-	cout << "Load mesh panel finish" << endl;
+	std::cout << "Load mesh panel finish" << endl;
 	My_Init();
 	updateTextureList();
 	loadFinish = true;
@@ -123,7 +123,7 @@ void Mesh::MyForm::OnMouseWheel(System::Object^ sender, System::Windows::Forms::
 void Mesh::MyForm::OnLoaduv(System::Object^ sender, System::EventArgs^ e)
 {
 	// 1.
-	cout << "Load texcoord panel finish" << endl;
+	std::cout << "Load texcoord panel finish" << endl;
 
 	//InitOpenGL();
 	//ResourcePath::modelPath = "../../Model/UnionSphere.obj";
@@ -194,7 +194,7 @@ System::Void Mesh::MyForm::loadTexturebtn_Click(System::Object^ sender, System::
 {
 	if (!model.ReadFile())
 	{
-		cout << "Read File Fail!" << endl;
+		std::cout << "Read File Fail!" << endl;
 	}
 
 	clear_texture_info();
@@ -212,7 +212,7 @@ System::Void Mesh::MyForm::loadTexturebtn_Click(System::Object^ sender, System::
 			path.push_back(tmp);
 			file >> tmp;
 		}
-		cout << "load image:" << path << endl;
+		std::cout << "load image:" << path << endl;
 		LoadTexture(path.c_str(),false);
 		file >> uvPreRotate[i] >> uvRotate[i];
 		for (int j = 0; j < 4; j++) {
@@ -221,7 +221,7 @@ System::Void Mesh::MyForm::loadTexturebtn_Click(System::Object^ sender, System::
 			}
 		}
 	}
-	cout << "Read Finish" << endl;
+	std::cout << "Read Finish" << endl;
 	for (int i = 0; i < size; i++)
 	{
 		model.Parameterization(uvRotate[i], i);
@@ -235,7 +235,7 @@ System::Void Mesh::MyForm::writeTexturebtn_Click(System::Object^ sender, System:
 {
 	if (!model.WriteFile())
 	{
-		cout << "Wrire File Fail!" << endl;
+		std::cout << "Wrire File Fail!" << endl;
 	}
 	fstream file;
 	file.open("Matrix.txt", ios::out);
@@ -250,7 +250,7 @@ System::Void Mesh::MyForm::writeTexturebtn_Click(System::Object^ sender, System:
 		}
 		file << endl;
 	}
-	cout << "Write Finish" << endl;
+	std::cout << "Write Finish" << endl;
 }
 
 System::String^ Mesh::MyForm::getRelativePath(String^ path)
@@ -285,6 +285,13 @@ System::Void Mesh::MyForm::newTexturebtn_Click(System::Object^ sender, System::E
 	updateTextureList();
 }
 
+System::Void Mesh::MyForm::DelTextureBtn_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	DisableID.emplace_back(selectTextureIndex);
+	sort(DisableID.begin(), DisableID.end());
+	updateTextureList();
+}
+
 //=================================" TextureList "====================================
 
 System::Void Mesh::MyForm::addTexturetoList(int index,string _fileName)
@@ -303,14 +310,26 @@ System::String^ getFileName(String^ filepath) {
 System::Void Mesh::MyForm::updateTextureList() 
 {
 	for (int i : textureIDList) {
-		cout << i << "　";
+		std::cout << i << "　";
 	}
-	cout << endl;
+	std::cout << endl;
 	TexturedataGridView->Rows->Clear();
 	for (int i = 0; i < textureIDList.size(); i++) {
 		String^ nameTmp = gcnew String(textureFileName[i].c_str());
+		TexturedataGridView->Rows->Add(i, getFileName(nameTmp), Image::FromFile(nameTmp));
+	}
 
-		TexturedataGridView->Rows->Add(textureIDList[i]-1/*因為在前面有人把ID1搶走了*/, getFileName(nameTmp), Image::FromFile(nameTmp));
+	for (int i : DisableID) {
+		TexturedataGridView->Rows[i]->Visible = false;
+	}
+	TexturedataGridView->ClearSelection();
+	int c = 0;
+	int count=TexturedataGridView->Rows->Count;
+	for (int i = 0; i < count && c < DisableID.size(); i++) {
+		if (i != DisableID[c++]) {
+			TexturedataGridView->Rows[i]->Selected = true;
+			break;
+		}
 	}
 }
 
@@ -319,9 +338,10 @@ System::Void Mesh::MyForm::textureListValueChange(System::Object^ sender, System
 	if (TexturedataGridView->SelectedCells->Count == 0)
 		return;
 	if (textureIDList.empty()) return;
-	int id = Convert::ToInt32(TexturedataGridView->SelectedCells[0]->RowIndex);
+	int id = Convert::ToInt32(TexturedataGridView->SelectedCells[0]->OwningRow->Cells[0]->Value);
 	selectTextureIndex = id;
 	trackBar_rotate->Value = uvRotate[selectTextureIndex];
+	//TODO:其他三個Bar也要調整
 }
 
 //=================================" Mode "====================================
@@ -460,23 +480,23 @@ void LoadTexture(const char* _path,bool first)
 		filename.insert(filename.begin(), path[i]);
 	}
 
-	cout << "_path: " << _path << endl;
-	cout << "filename: " << filename << endl;
-	cout << "textureFileName.size: " << textureFileName.size() << endl;
+	std::cout << "_path: " << _path << endl;
+	std::cout << "filename: " << filename << endl;
+	std::cout << "textureFileName.size: " << textureFileName.size() << endl;
 	if (first) textureFileName.insert(textureFileName.begin() + textureFileName.size() / 2, filename);
 	else textureFileName.push_back(filename);
 
 	TextureData tdata = Load_png((/*ResourcePath::imagePath +*/ filename).c_str());
-	GLuint textureID;
+
 	if (first) {
 		textureIDList.insert(textureIDList.begin() + textureIDList.size() / 2, 1);
 		glGenTextures(1, &textureIDList[textureIDList.size() / 2]);
 		glBindTexture(GL_TEXTURE_2D, textureIDList[textureIDList.size() / 2]);
 	}
 	else {
-		glGenTextures(1, &textureID);
-		cout << "check:" << textureID << endl;
-		glBindTexture(GL_TEXTURE_2D, textureID);
+		textureIDList.push_back(1);
+		glGenTextures(1, &textureIDList[textureIDList.size() - 1]);
+		glBindTexture(GL_TEXTURE_2D, textureIDList[textureIDList.size() - 1]);
 	}
 
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA32F, tdata.width, tdata.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, tdata.data);
@@ -484,9 +504,8 @@ void LoadTexture(const char* _path,bool first)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	textureIDList.emplace_back(textureID);
 	glBindTexture(GL_TEXTURE_2D, 0);
-	cout << "Load Texture Finish." << endl;
+	std::cout << "Load Texture Finish." << endl;
 
 	uvRotate.push_back(0.0);
 	uvPreRotate.push_back(0.0);
@@ -559,7 +578,7 @@ void LoadTextures()
 			textureName = "checkerboard4.jpg";
 			break;
 		default:
-			cout << "has limit" << endl;
+			std::cout << "has limit" << endl;
 			return;
 			break;
 		}
@@ -577,7 +596,7 @@ void LoadTextures()
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
-	cout << "Load Texture Finish." << endl;
+	std::cout << "Load Texture Finish." << endl;
 }
 
 void InitOpenGL()
@@ -675,8 +694,13 @@ void My_Paint()
 	{
 
 		drawModelShader.DrawTexture(true);
-		for (int i = 0; i < textureIDList.size(); i++)
+		int c = 0;
+		for (int i = 0; i < textureIDList.size() ; i++)
 		{
+			if (c < DisableID.size() && DisableID[c] == i) {
+				++c;
+				continue;
+			}
 			float radian = uvRotate[i] * M_PI / 180.0f;
 			glm::mat4 uvRotMat = glm::rotate(radian, glm::vec3(0.0, 0.0, 1.0));
 
