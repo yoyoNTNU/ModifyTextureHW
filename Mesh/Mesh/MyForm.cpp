@@ -277,8 +277,8 @@ System::Void Mesh::MyForm::newTexturebtn_Click(System::Object^ sender, System::E
 		return;
 	}
 	for each (String ^ path in openTextureDialog->FileNames) {
-		String^ relPath = getRelativePath(path);
-		IntPtr fileNamePtr = Marshal::StringToHGlobalAnsi(relPath);
+		//String^ relPath = getRelativePath(path);
+		IntPtr fileNamePtr = Marshal::StringToHGlobalAnsi(path);
 		//LoadTexture((char*)fileNamePtr.ToPointer(), true);
 		LoadTexture((char*)fileNamePtr.ToPointer(),false);
 	}
@@ -299,7 +299,7 @@ System::Void Mesh::MyForm::updateTextureList()
 	TexturedataGridView->Rows->Clear();
 	for (int i = 0; i < textureIDList.size(); i++) {
 		String^ nameTmp = gcnew String(textureFileName[i].c_str());
-		String^ strTmp = gcnew String((ResourcePath::imagePath + textureFileName[i]).c_str());
+		String^ strTmp = gcnew String((/*ResourcePath::imagePath +*/ textureFileName[i]).c_str());
 		TexturedataGridView->Rows->Add(i,nameTmp, Image::FromFile(strTmp));
 	}
 }
@@ -446,7 +446,7 @@ void LoadTexture(const char* _path,bool first)
 	string path = _path;
 	string filename;
 	for (int i = path.length() - 1; i >= 0; i--) {
-		if (path[i] == '/' || path[i] == '\\') break;
+		//if (path[i] == '/' || path[i] == '\\') break;
 		filename.insert(filename.begin(), path[i]);
 	}
 
@@ -456,9 +456,7 @@ void LoadTexture(const char* _path,bool first)
 	if (first) textureFileName.insert(textureFileName.begin() + textureFileName.size() / 2, filename);
 	else textureFileName.push_back(filename);
 
-
-	TextureData tdata = Load_png((ResourcePath::imagePath + filename).c_str());
-
+	TextureData tdata = Load_png((/*ResourcePath::imagePath +*/ filename).c_str());
 	if (first) {
 		textureIDList.insert(textureIDList.begin() + textureIDList.size() / 2, 1);
 		glGenTextures(1, &textureIDList[textureIDList.size() / 2]);
@@ -469,7 +467,6 @@ void LoadTexture(const char* _path,bool first)
 		glGenTextures(1, &textureIDList[textureIDList.size() - 1]);
 		glBindTexture(GL_TEXTURE_2D, textureIDList[textureIDList.size() - 1]);
 	}
-
 
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA32F, tdata.width, tdata.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, tdata.data);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
