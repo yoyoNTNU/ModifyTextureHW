@@ -16,6 +16,7 @@
 #include "stb_image_write.h"
 #include "stb_image.h"
 //#define STB_IMAGE_IMPLEMENTATION
+#include <unordered_set>
 
 #define DOR(angle) (angle*3.1415/180);
 #define TEXTURESUM 0
@@ -40,10 +41,10 @@ GLuint			textureID;
 vector<GLuint>	textureIDList;
 ViewManager		meshWindowCam, texCoordWindowCam;
 vector<string> textureFileName;
-vector<int> DisableID;
+unordered_set<int> DisableID;
 int nextTextureID = 1;
 
-bool drawTexture = false;
+bool drawTexture = true;
 
 vector<float> uvPreRotate;
 vector<float> uvRotate;
@@ -108,12 +109,12 @@ void ResetTexture()
 
 void TranslateTextureX(int value)
 {
-	uvTranslate[selectTextureIndex] = Translate(0.1f * value, 0, 0);
+	uvTranslate[selectTextureIndex] = uvTranslate[selectTextureIndex]* Translate(0.1f * value, 0, 0);
 }
 
 void TranslateTextureY(int value)
 {
-	uvTranslate[selectTextureIndex] = Translate(0, 0.1f * value, 0);
+	uvTranslate[selectTextureIndex] = uvTranslate[selectTextureIndex]* Translate(0, 0.1f * value, 0);
 }
 
 void RotateTexture(int value)

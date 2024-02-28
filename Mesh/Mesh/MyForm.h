@@ -113,6 +113,8 @@ namespace Mesh {
 	private: System::Windows::Forms::Button^ DelTextureBtn;
 	private: System::Windows::Forms::OpenFileDialog^ openTextureDialog;
 
+	private: System::Windows::Forms::Label^ label2;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ Àx¦sÀÉ®×ToolStripMenuItem;
 
 	private: String^ getRelativePath(String^ path);
@@ -185,6 +187,7 @@ namespace Mesh {
 			this->AddTextureBtn = (gcnew System::Windows::Forms::Button());
 			this->DelTextureBtn = (gcnew System::Windows::Forms::Button());
 			this->openTextureDialog = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->menuStrip1->SuspendLayout();
 			this->groupBox_Mode->SuspendLayout();
 			this->groupBox_selectMode->SuspendLayout();
@@ -246,16 +249,16 @@ namespace Mesh {
 			// radioButton_Texture
 			// 
 			resources->ApplyResources(this->radioButton_Texture, L"radioButton_Texture");
+			this->radioButton_Texture->Checked = true;
 			this->radioButton_Texture->Name = L"radioButton_Texture";
+			this->radioButton_Texture->TabStop = true;
 			this->radioButton_Texture->UseVisualStyleBackColor = true;
 			this->radioButton_Texture->Click += gcnew System::EventHandler(this, &MyForm::renderMode_Click);
 			// 
 			// radioButton_selectFace
 			// 
 			resources->ApplyResources(this->radioButton_selectFace, L"radioButton_selectFace");
-			this->radioButton_selectFace->Checked = true;
 			this->radioButton_selectFace->Name = L"radioButton_selectFace";
-			this->radioButton_selectFace->TabStop = true;
 			this->radioButton_selectFace->UseVisualStyleBackColor = true;
 			this->radioButton_selectFace->Click += gcnew System::EventHandler(this, &MyForm::renderMode_Click);
 			// 
@@ -444,10 +447,16 @@ namespace Mesh {
 			// 
 			this->openTextureDialog->FileName = L"openFileDialog1";
 			// 
+			// label2
+			// 
+			resources->ApplyResources(this->label2, L"label2");
+			this->label2->Name = L"label2";
+			// 
 			// MyForm
 			// 
 			resources->ApplyResources(this, L"$this");
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->Controls->Add(this->label2);
 			this->Controls->Add(this->DelTextureBtn);
 			this->Controls->Add(this->AddTextureBtn);
 			this->Controls->Add(this->panel1);
@@ -459,6 +468,7 @@ namespace Mesh {
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MyForm";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->groupBox_Mode->ResumeLayout(false);
@@ -512,7 +522,5 @@ namespace Mesh {
 	private: System::Void trackBarMoveY_Scroll(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void trackBarRotate_Scroll(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void trackBarScale_Scroll(System::Object^ sender, System::EventArgs^ e);
-
-
 };
 }

@@ -287,8 +287,7 @@ System::Void Mesh::MyForm::newTexturebtn_Click(System::Object^ sender, System::E
 
 System::Void Mesh::MyForm::DelTextureBtn_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	DisableID.emplace_back(selectTextureIndex);
-	sort(DisableID.begin(), DisableID.end());
+	DisableID.insert(selectTextureIndex);
 	updateTextureList();
 }
 
@@ -323,14 +322,25 @@ System::Void Mesh::MyForm::updateTextureList()
 		TexturedataGridView->Rows[i]->Visible = false;
 	}
 	TexturedataGridView->ClearSelection();
-	int c = 0;
 	int count=TexturedataGridView->Rows->Count;
-	for (int i = 0; i < count && c < DisableID.size(); i++) {
-		if (i != DisableID[c++]) {
+	for (int i = 0; i < count ; i++) {
+		if (!DisableID.count(i)) {
 			TexturedataGridView->Rows[i]->Selected = true;
 			break;
 		}
 	}
+	bool tmp = TexturedataGridView->SelectedRows->Count == 0;
+	if (tmp) {
+		this->radioButton_Texture->Checked = true;
+		drawTexture = true;
+		this->groupBox_selectMode->Visible = false;
+	}
+	this->groupBox_tools->Visible = !tmp;
+	this->glPanel_uv->Visible = !tmp;
+	this->label2->Visible = tmp;
+	this->radioButton_selectFace->Enabled = !tmp;
+	
+	
 }
 
 System::Void Mesh::MyForm::textureListValueChange(System::Object^ sender, System::EventArgs^ e)
@@ -615,7 +625,7 @@ void InitData()
 	ResourcePath::shaderPath = "Shader/";
 	ResourcePath::imagePath = "Image/";
 	//ResourcePath::modelPath = "Model/UnionSphere.obj";
-	ResourcePath::modelPath = "Model/horse.obj";
+	ResourcePath::modelPath = "Model/armadillo.obj";
 
 	drawTextureShader.Init();
 	drawModelShader.Init();
@@ -694,13 +704,9 @@ void My_Paint()
 	{
 
 		drawModelShader.DrawTexture(true);
-		int c = 0;
 		for (int i = 0; i < textureIDList.size() ; i++)
 		{
-			if (c < DisableID.size() && DisableID[c] == i) {
-				++c;
-				continue;
-			}
+			if (DisableID.count(i))continue;
 			float radian = uvRotate[i] * M_PI / 180.0f;
 			glm::mat4 uvRotMat = glm::rotate(radian, glm::vec3(0.0, 0.0, 1.0));
 
