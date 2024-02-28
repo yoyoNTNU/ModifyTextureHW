@@ -114,6 +114,8 @@ namespace Mesh {
 	private: System::Windows::Forms::OpenFileDialog^ openTextureDialog;
 
 	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::ToolStripMenuItem^ 開新檔案objToolStripMenuItem;
+	private: System::Windows::Forms::Label^ label1;
 
 	private: System::Windows::Forms::ToolStripMenuItem^ 儲存檔案ToolStripMenuItem;
 
@@ -159,6 +161,7 @@ namespace Mesh {
 			this->updateTimer = (gcnew System::Windows::Forms::Timer(this->components));
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->開新檔案objToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->讀取檔案ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->儲存檔案ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBox_Mode = (gcnew System::Windows::Forms::GroupBox());
@@ -188,6 +191,7 @@ namespace Mesh {
 			this->DelTextureBtn = (gcnew System::Windows::Forms::Button());
 			this->openTextureDialog = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->menuStrip1->SuspendLayout();
 			this->groupBox_Mode->SuspendLayout();
 			this->groupBox_selectMode->SuspendLayout();
@@ -219,23 +223,29 @@ namespace Mesh {
 			// 
 			// fileToolStripMenuItem
 			// 
-			this->fileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->讀取檔案ToolStripMenuItem,
-					this->儲存檔案ToolStripMenuItem
+			this->fileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->開新檔案objToolStripMenuItem,
+					this->讀取檔案ToolStripMenuItem, this->儲存檔案ToolStripMenuItem
 			});
 			this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
 			resources->ApplyResources(this->fileToolStripMenuItem, L"fileToolStripMenuItem");
 			// 
+			// 開新檔案objToolStripMenuItem
+			// 
+			this->開新檔案objToolStripMenuItem->Name = L"開新檔案objToolStripMenuItem";
+			resources->ApplyResources(this->開新檔案objToolStripMenuItem, L"開新檔案objToolStripMenuItem");
+			this->開新檔案objToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::loadModelbtn_Click);
+			// 
 			// 讀取檔案ToolStripMenuItem
 			// 
-			this->讀取檔案ToolStripMenuItem->Name = L"讀取檔案ToolStripMenuItem";
 			resources->ApplyResources(this->讀取檔案ToolStripMenuItem, L"讀取檔案ToolStripMenuItem");
+			this->讀取檔案ToolStripMenuItem->Name = L"讀取檔案ToolStripMenuItem";
 			this->讀取檔案ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::loadTexturebtn_Click);
 			// 
 			// 儲存檔案ToolStripMenuItem
 			// 
-			this->儲存檔案ToolStripMenuItem->Name = L"儲存檔案ToolStripMenuItem";
 			resources->ApplyResources(this->儲存檔案ToolStripMenuItem, L"儲存檔案ToolStripMenuItem");
+			this->儲存檔案ToolStripMenuItem->Name = L"儲存檔案ToolStripMenuItem";
 			this->儲存檔案ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::writeTexturebtn_Click);
 			// 
 			// groupBox_Mode
@@ -452,10 +462,16 @@ namespace Mesh {
 			resources->ApplyResources(this->label2, L"label2");
 			this->label2->Name = L"label2";
 			// 
+			// label1
+			// 
+			resources->ApplyResources(this->label1, L"label1");
+			this->label1->Name = L"label1";
+			// 
 			// MyForm
 			// 
 			resources->ApplyResources(this, L"$this");
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->DelTextureBtn);
 			this->Controls->Add(this->AddTextureBtn);
@@ -522,5 +538,8 @@ namespace Mesh {
 	private: System::Void trackBarMoveY_Scroll(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void trackBarRotate_Scroll(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void trackBarScale_Scroll(System::Object^ sender, System::EventArgs^ e);
+		//=================================" Helper "====================================	
+	private: System::String^ getFileName(String^ filepath);
+	private: std::string getFileName(std::string filepath);
 };
 }

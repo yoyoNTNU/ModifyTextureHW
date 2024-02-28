@@ -188,6 +188,10 @@ System::Void Mesh::MyForm:: loadModelbtn_Click(System::Object^ sender, System::E
 	this->panel1->Controls->Add(this->glPanel_uv);
 	this->glPanel_uv->ResumeLayout(true);
 	this->panel1->ResumeLayout(true);
+	this->glPanel_uv->Visible = this->TexturedataGridView->SelectedCells->Count != 0;
+	this->開新檔案objToolStripMenuItem->Enabled = false;
+	this->讀取檔案ToolStripMenuItem->Enabled = true;
+	this->儲存檔案ToolStripMenuItem->Enabled = true;
 }
 
 System::Void Mesh::MyForm::loadTexturebtn_Click(System::Object^ sender, System::EventArgs^ e) 
@@ -195,13 +199,22 @@ System::Void Mesh::MyForm::loadTexturebtn_Click(System::Object^ sender, System::
 	if (!model.ReadFile())
 	{
 		std::cout << "Read File Fail!" << endl;
+		this->label1->Visible = true;
+		this->label1->Text = "此模型目前尚未擁有儲存過的紋理";
+		return;
 	}
 
 	clear_texture_info();
 
 	fstream file;
 	int size;
-	file.open("Matrix.txt", ios::in);
+	string modelName = ResourcePath::modelPath + "_texture.txt";
+	file.open(modelName, ios::in);
+	if (!file.is_open()) {
+		this->label1->Visible = true;
+		this->label1->Text = "此模型目前尚未擁有儲存過的紋理";
+		return;
+	}
 	file >> size;	// 貼圖張數
 	for (int i = 0; i < size; i++) {
 		//new_texture_info();
@@ -227,7 +240,7 @@ System::Void Mesh::MyForm::loadTexturebtn_Click(System::Object^ sender, System::
 		model.Parameterization(uvRotate[i], i);
 		uvPreRotate[i] = uvRotate[i];
 	}
-
+	file.close();
 	updateTextureList();
 }
 
@@ -236,12 +249,21 @@ System::Void Mesh::MyForm::writeTexturebtn_Click(System::Object^ sender, System:
 	if (!model.WriteFile())
 	{
 		std::cout << "Wrire File Fail!" << endl;
+		this->label1->Visible = true;
+		this->label1->Text = "紋理儲存失敗!";
+		return;
 	}
 	fstream file;
-	file.open("Matrix.txt", ios::out);
+	string modelName = ResourcePath::modelPath + "_texture.txt";
+	file.open(modelName, ios::out);
+	if (!file.is_open()) {
+		this->label1->Visible = true;
+		this->label1->Text = "紋理儲存失敗!";
+		return;
+	}
 	file << (int)textureIDList.size() << endl;	// 貼圖張數
 	for (int i = 0; i < textureIDList.size(); i++) {
-		file << ResourcePath::imagePath + textureFileName[i] << "< ";
+		file <<  textureFileName[i] << "< ";
 		file << uvPreRotate[i] << " " << uvRotate[i] << " ";
 		for (int j = 0; j < 4; j++) {
 			for (int k = 0; k < 4; k++) {
@@ -250,7 +272,10 @@ System::Void Mesh::MyForm::writeTexturebtn_Click(System::Object^ sender, System:
 		}
 		file << endl;
 	}
+	this->label1->Visible = true;
+	this->label1->Text = "紋理儲存成功!";
 	std::cout << "Write Finish" << endl;
+	file.close();
 }
 
 System::String^ Mesh::MyForm::getRelativePath(String^ path)
@@ -287,6 +312,7 @@ System::Void Mesh::MyForm::newTexturebtn_Click(System::Object^ sender, System::E
 
 System::Void Mesh::MyForm::DelTextureBtn_Click(System::Object^ sender, System::EventArgs^ e)
 {
+	if (TexturedataGridView->SelectedCells->Count == 0)return;
 	DisableID.insert(selectTextureIndex);
 	updateTextureList();
 }
@@ -298,12 +324,6 @@ System::Void Mesh::MyForm::addTexturetoList(int index,string _fileName)
 	String^ nameTmp = gcnew String(_fileName.c_str());
 	String^ strTmp = gcnew String((ResourcePath::imagePath + _fileName).c_str());
 	TexturedataGridView->Rows->Add(index, nameTmp, Image::FromFile(strTmp));
-}
-
-System::String^ getFileName(String^ filepath) {
-	int lastBackslashIndex = filepath->LastIndexOf('\\');
-	System::String^ fileName = filepath->Substring(lastBackslashIndex + 1);
-	return fileName;
 }
 
 System::Void Mesh::MyForm::updateTextureList() 
@@ -420,6 +440,20 @@ System::Void Mesh::MyForm::trackBarRotate_Scroll(System::Object^ sender, System:
 System::Void Mesh::MyForm::trackBarScale_Scroll(System::Object^ sender, System::EventArgs^ e)
 {
 	ScaleTexture(trackBar_scale->Value);
+}
+
+//=================================" Helper "====================================	
+
+System::String^ Mesh::MyForm::getFileName(String^ filepath) {
+	int lastBackslashIndex = filepath->LastIndexOf('\\');
+	System::String^ fileName = filepath->Substring(lastBackslashIndex + 1);
+	return fileName;
+}
+
+std::string Mesh::MyForm::getFileName(std::string filepath) {
+	int lastBackslashIndex = filepath.find('\\');
+	std::string fileName = filepath.substr(lastBackslashIndex + 1);
+	return fileName;
 }
 
 //=================================" Project2 Function "====================================
@@ -627,7 +661,9 @@ void InitData()
 	ResourcePath::shaderPath = "Shader/";
 	ResourcePath::imagePath = "Image/";
 	//ResourcePath::modelPath = "Model/UnionSphere.obj";
-	ResourcePath::modelPath = "Model/armadillo.obj";
+	//ResourcePath::modelPath = "Model/armadillo.obj";
+
+	
 
 	drawTextureShader.Init();
 	drawModelShader.Init();

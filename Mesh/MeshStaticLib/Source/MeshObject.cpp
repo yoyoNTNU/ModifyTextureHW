@@ -21,7 +21,7 @@ MyMesh::MyMesh()
 
 MyMesh::~MyMesh()
 {
-	// clear();
+	 //clear();
 }
 
 #pragma endregion
@@ -673,7 +673,8 @@ void MeshObject::CopySelectFace(MyMesh& mesh, int layer)
 bool MeshObject::ReadFile()
 {
 	fstream file;
-	file.open("Reader.txt", ios::in);
+	string modelName = ResourcePath::modelPath + "_face.txt";
+	file.open(modelName, ios::in);
 	if (!file.is_open())
 	{
 		std::cout << "Can't open Reader.txt!" << endl;
@@ -697,13 +698,19 @@ bool MeshObject::ReadFile()
 		/*if (selectFaceCount != 0)
 			Parameterization(0, i);*/
 	}
+	file.close();
 	return true;
 }
 
 bool MeshObject::WriteFile()
 {
 	fstream file;
-	file.open("Reader.txt", ios::out);
+	string modelName = ResourcePath::modelPath + "_face.txt";
+	cout << modelName << endl;
+	file.open(modelName, ios::out);
+	if (!file.is_open()) {
+		return false;
+	}
 	file.clear();
 	file << selectedFaceList.size() << endl;					// 貼圖張數
 	for (int i = 0; i < selectedFaceList.size(); i++) {
@@ -713,6 +720,7 @@ bool MeshObject::WriteFile()
 			file << selectedFaceList[i][j] << endl;
 		}
 	}
+	file.close();
 	return true;
 }
 
@@ -902,4 +910,10 @@ void MeshObject::Shrink(int layer)
 	std::cout << "現有面數=" << selectedFaceList[layer].size() << endl;
 	model.meshList[layer].update_normals();
 
+}
+
+std::string MeshObject::getFileName(std::string filepath) {
+	int lastBackslashIndex = filepath.find('\\');
+	std::string fileName = filepath.substr(lastBackslashIndex + 1);
+	return fileName;
 }

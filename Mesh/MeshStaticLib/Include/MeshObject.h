@@ -74,6 +74,7 @@ private:
 	void CopySelectFace(MyMesh& model, int layer);
 
 	bool WriteMeshFile(int layer);
+
+	std::string getFileName(std::string filepath);
 	
 };
-

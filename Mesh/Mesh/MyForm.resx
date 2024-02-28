@@ -142,7 +142,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <metadata name="updateTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -150,11 +150,41 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>143, 17</value>
   </metadata>
+  <data name="開新檔案objToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 26</value>
+  </data>
+  <data name="開新檔案objToolStripMenuItem.Text" xml:space="preserve">
+    <value>開新檔案(.obj)</value>
+  </data>
+  <data name="讀取檔案ToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="讀取檔案ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 26</value>
+  </data>
+  <data name="讀取檔案ToolStripMenuItem.Text" xml:space="preserve">
+    <value>讀取紋理</value>
+  </data>
+  <data name="儲存檔案ToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="儲存檔案ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 26</value>
+  </data>
+  <data name="儲存檔案ToolStripMenuItem.Text" xml:space="preserve">
+    <value>儲存紋理</value>
+  </data>
+  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 26</value>
+  </data>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>檔案</value>
+  </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
   <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1845, 30</value>
+    <value>1710, 30</value>
   </data>
   <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -172,79 +202,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 23</value>
-  </data>
-  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
-    <value>檔案</value>
-  </data>
-  <data name="讀取檔案ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 26</value>
-  </data>
-  <data name="讀取檔案ToolStripMenuItem.Text" xml:space="preserve">
-    <value>讀取檔案</value>
-  </data>
-  <data name="儲存檔案ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 26</value>
-  </data>
-  <data name="儲存檔案ToolStripMenuItem.Text" xml:space="preserve">
-    <value>儲存檔案</value>
-  </data>
-  <data name="&gt;&gt;radioButton_Texture.Name" xml:space="preserve">
-    <value>radioButton_Texture</value>
-  </data>
-  <data name="&gt;&gt;radioButton_Texture.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioButton_Texture.Parent" xml:space="preserve">
-    <value>groupBox_Mode</value>
-  </data>
-  <data name="&gt;&gt;radioButton_Texture.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;radioButton_selectFace.Name" xml:space="preserve">
-    <value>radioButton_selectFace</value>
-  </data>
-  <data name="&gt;&gt;radioButton_selectFace.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioButton_selectFace.Parent" xml:space="preserve">
-    <value>groupBox_Mode</value>
-  </data>
-  <data name="&gt;&gt;radioButton_selectFace.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="groupBox_Mode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>51, 701</value>
-  </data>
-  <data name="groupBox_Mode.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox_Mode.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox_Mode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 58</value>
-  </data>
-  <data name="groupBox_Mode.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="groupBox_Mode.Text" xml:space="preserve">
-    <value>顯示</value>
-  </data>
-  <data name="&gt;&gt;groupBox_Mode.Name" xml:space="preserve">
-    <value>groupBox_Mode</value>
-  </data>
-  <data name="&gt;&gt;groupBox_Mode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox_Mode.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;groupBox_Mode.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>10</value>
   </data>
   <data name="radioButton_Texture.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -306,74 +264,35 @@
   <data name="&gt;&gt;radioButton_selectFace.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;radioButton_moveFace.Name" xml:space="preserve">
-    <value>radioButton_moveFace</value>
+  <data name="groupBox_Mode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>51, 701</value>
   </data>
-  <data name="&gt;&gt;radioButton_moveFace.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="groupBox_Mode.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
-  <data name="&gt;&gt;radioButton_moveFace.Parent" xml:space="preserve">
-    <value>groupBox_selectMode</value>
+  <data name="groupBox_Mode.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
-  <data name="&gt;&gt;radioButton_moveFace.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="groupBox_Mode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 58</value>
   </data>
-  <data name="&gt;&gt;radioButton_deleteFace.Name" xml:space="preserve">
-    <value>radioButton_deleteFace</value>
-  </data>
-  <data name="&gt;&gt;radioButton_deleteFace.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioButton_deleteFace.Parent" xml:space="preserve">
-    <value>groupBox_selectMode</value>
-  </data>
-  <data name="&gt;&gt;radioButton_deleteFace.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;radioButton_addFace.Name" xml:space="preserve">
-    <value>radioButton_addFace</value>
-  </data>
-  <data name="&gt;&gt;radioButton_addFace.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioButton_addFace.Parent" xml:space="preserve">
-    <value>groupBox_selectMode</value>
-  </data>
-  <data name="&gt;&gt;radioButton_addFace.ZOrder" xml:space="preserve">
+  <data name="groupBox_Mode.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="groupBox_selectMode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>246, 701</value>
+  <data name="groupBox_Mode.Text" xml:space="preserve">
+    <value>顯示</value>
   </data>
-  <data name="groupBox_selectMode.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="&gt;&gt;groupBox_Mode.Name" xml:space="preserve">
+    <value>groupBox_Mode</value>
   </data>
-  <data name="groupBox_selectMode.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox_selectMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 58</value>
-  </data>
-  <data name="groupBox_selectMode.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="groupBox_selectMode.Text" xml:space="preserve">
-    <value>選面模式</value>
-  </data>
-  <data name="groupBox_selectMode.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;groupBox_selectMode.Name" xml:space="preserve">
-    <value>groupBox_selectMode</value>
-  </data>
-  <data name="&gt;&gt;groupBox_selectMode.Type" xml:space="preserve">
+  <data name="&gt;&gt;groupBox_Mode.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBox_selectMode.Parent" xml:space="preserve">
+  <data name="&gt;&gt;groupBox_Mode.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;groupBox_selectMode.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="&gt;&gt;groupBox_Mode.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="radioButton_moveFace.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -464,6 +383,39 @@
   </data>
   <data name="&gt;&gt;radioButton_addFace.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="groupBox_selectMode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>246, 701</value>
+  </data>
+  <data name="groupBox_selectMode.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="groupBox_selectMode.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="groupBox_selectMode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 58</value>
+  </data>
+  <data name="groupBox_selectMode.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="groupBox_selectMode.Text" xml:space="preserve">
+    <value>選面模式</value>
+  </data>
+  <data name="groupBox_selectMode.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;groupBox_selectMode.Name" xml:space="preserve">
+    <value>groupBox_selectMode</value>
+  </data>
+  <data name="&gt;&gt;groupBox_selectMode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox_selectMode.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox_selectMode.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="label_Rotate.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -775,46 +727,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;groupBox_tools.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
-  <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="TexureName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Image.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="TexturedataGridView.ColumnHeadersHeight" type="System.Int32, mscorlib">
     <value>29</value>
-  </data>
-  <data name="TexturedataGridView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1105, 54</value>
-  </data>
-  <data name="TexturedataGridView.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="TexturedataGridView.RowHeadersWidth" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="TexturedataGridView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>705, 584</value>
-  </data>
-  <data name="TexturedataGridView.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;TexturedataGridView.Name" xml:space="preserve">
-    <value>TexturedataGridView</value>
-  </data>
-  <data name="&gt;&gt;TexturedataGridView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TexturedataGridView.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;TexturedataGridView.ZOrder" xml:space="preserve">
-    <value>5</value>
   </data>
   <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -846,6 +762,33 @@
   <data name="Image.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
+  <data name="TexturedataGridView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1105, 54</value>
+  </data>
+  <data name="TexturedataGridView.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="TexturedataGridView.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="TexturedataGridView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>705, 584</value>
+  </data>
+  <data name="TexturedataGridView.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;TexturedataGridView.Name" xml:space="preserve">
+    <value>TexturedataGridView</value>
+  </data>
+  <data name="&gt;&gt;TexturedataGridView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TexturedataGridView.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TexturedataGridView.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>1195, 703</value>
   </data>
@@ -853,7 +796,7 @@
     <value>4, 4, 4, 4</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 139</value>
+    <value>212, 217</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -868,7 +811,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="AddTextureBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>1167, 650</value>
@@ -895,7 +838,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;AddTextureBtn.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="DelTextureBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>1524, 650</value>
@@ -922,7 +865,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;DelTextureBtn.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <metadata name="openTextureDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>262, 17</value>
@@ -958,6 +901,39 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>PMingLiU, 11pt</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 805</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>294, 19</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>此模型目前尚未擁有儲存過的紋理</value>
+  </data>
+  <data name="label1.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -970,7 +946,10 @@
     <value>8, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1845, 855</value>
+    <value>1710, 855</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>PMingLiU, 9pt</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -988,6 +967,12 @@
     <value>fileToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;fileToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;開新檔案objToolStripMenuItem.Name" xml:space="preserve">
+    <value>開新檔案objToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;開新檔案objToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;讀取檔案ToolStripMenuItem.Name" xml:space="preserve">
