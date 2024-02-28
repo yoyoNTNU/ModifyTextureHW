@@ -351,7 +351,9 @@ System::Void Mesh::MyForm::textureListValueChange(System::Object^ sender, System
 	int id = Convert::ToInt32(TexturedataGridView->SelectedCells[0]->OwningRow->Cells[0]->Value);
 	selectTextureIndex = id;
 	trackBar_rotate->Value = uvRotate[selectTextureIndex];
-	//TODO:其他三個Bar也要調整
+	trackBar_moveX->Value = uvTranslate[selectTextureIndex][3][0] * 10;
+	trackBar_moveY->Value = uvTranslate[selectTextureIndex][3][1] * 10;
+	trackBar_scale->Value = uvScale[selectTextureIndex][0][0] * 5;
 }
 
 //=================================" Mode "====================================

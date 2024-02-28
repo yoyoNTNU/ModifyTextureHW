@@ -109,12 +109,12 @@ void ResetTexture()
 
 void TranslateTextureX(int value)
 {
-	uvTranslate[selectTextureIndex] = uvTranslate[selectTextureIndex]* Translate(0.1f * value, 0, 0);
+	uvTranslate[selectTextureIndex] = Translate(0.1f * value, uvTranslate[selectTextureIndex][3][1], 0);
 }
 
 void TranslateTextureY(int value)
 {
-	uvTranslate[selectTextureIndex] = uvTranslate[selectTextureIndex]* Translate(0, 0.1f * value, 0);
+	uvTranslate[selectTextureIndex] = Translate(uvTranslate[selectTextureIndex][3][0], 0.1f * value, 0);
 }
 
 void RotateTexture(int value)
