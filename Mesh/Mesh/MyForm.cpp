@@ -234,6 +234,13 @@ System::Void Mesh::MyForm::loadTexturebtn_Click(System::Object^ sender, System::
 			}
 		}
 	}
+	DisableID.clear();
+	while (!file.eof()) {
+		int i=-1;
+		file >> i ;
+		if(i!=-1)DisableID.insert(i);
+	}
+
 	std::cout << "Read Finish" << endl;
 	for (int i = 0; i < size; i++)
 	{
@@ -271,6 +278,9 @@ System::Void Mesh::MyForm::writeTexturebtn_Click(System::Object^ sender, System:
 			}
 		}
 		file << endl;
+	}
+	for (int i : DisableID) {
+		file << i << " ";
 	}
 	this->label1->Visible = true;
 	this->label1->Text = "紋理儲存成功!";

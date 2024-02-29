@@ -1,4 +1,0 @@
-3
-C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\blood.png< 360 360 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 1 0 0.8 0 0 1 1 
-C:\Users\yoyo1\Downloads\images.png< 0 0 0.2 1 0 0 0 0 0 0 0 0 0.2 1 0 0 0 0 0 0 0 0 0.2 1 0 0 0 -1 0 -1 0 0 1 1 
-C:\Users\yoyo1\Downloads\png-clipart-background-brush-texture-brush-black-thumbnail.png< 157 157 1 1 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 1 1 
