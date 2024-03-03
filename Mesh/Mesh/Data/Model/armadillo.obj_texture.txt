@@ -1,0 +1,26 @@
+24
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\eye2.png< 180 180 1 1 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\fur.jpg< 0 23 0.4 1 0 0 0 0 0 0 0 0 0.4 1 0 0 0 0 0 0 0 0 0.4 1 0 0 0 0 0 0 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\fur1.jpg< 57 57 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 -0.4 0 0 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\ground.jpg< 0 0 1 1 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\leopard.jpg< 0 8 1.2 1 0 0 0 0 0 0 0 0 1.2 1 0 0 0 0 0 0 0 0 1.2 1 0 0 0 0 0 0.1 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\pangolin.jpg< 77 77 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 -0.4 0 0.3 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\pangolin2.jpg< 360 360 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 0.4 0 -0.4 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\pangolin3.jpg< 100 100 1.8 1 0 0 0 0 0 0 0 0 1.8 1 0 0 0 0 0 0 0 0 1.8 1 0 0 0 0 0 0 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\pig.png< 203 203 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 -0.3 0 0.6 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\Scales.jpg< 165 197 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 0.4 0 0.8 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\shell.jpg< 149 149 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 -0.4 0 -0.4 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\skin.jpg< 34 34 1.8 1 0 0 0 0 0 0 0 0 1.8 1 0 0 0 0 0 0 0 0 1.8 1 0 0 0 0 0 -0.1 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\skin2.jpg< 0 38 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 0.1 0 0.4 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\teeth.jpg< 218 218 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 -0.3 0 0.7 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\wall.jpg< 0 0 1 1 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\wood.jpg< 27 27 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 -0.2 0 0 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\eye2.png< 88 295 1 1 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 1 1 0 0 0 -0.2 0 -0.2 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\fur1.jpg< 0 0 1 1 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\wood.jpg< 12 12 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 0 0 0 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\shell.jpg< 130 130 1.2 1 0 0 0 0 0 0 0 0 1.2 1 0 0 0 0 0 0 0 0 1.2 1 0 0 0 -1 0 -0.8 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\eye2.png< 134 310 1 1 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 1 1 0 0 0 -0.2 0 0.6 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\pig.png< 0 103 0.4 1 0 0 0 0 0 0 0 0 0.4 1 0 0 0 0 0 0 0 0 0.4 1 0 0 0 -0.6 0 1 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\pangolin.jpg< 92 92 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 0 0 0 0 0 2 1 0 0 0 0 0 0 0 0 1 1 
+C:\Users\yoyo1\source\repos\ModifyTextureHW\Mesh\Mesh\Data\Image\pangolin2.jpg< 120 120 1.6 1 0 0 0 0 0 0 0 0 1.6 1 0 0 0 0 0 0 0 0 1.6 1 0 0 0 0.9 0 0.1 0 0 1 1 
+13 17 10 8 0 
